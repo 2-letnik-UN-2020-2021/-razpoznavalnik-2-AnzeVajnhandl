@@ -184,7 +184,7 @@ const val LPAREN = 8
 const val RPAREN = 9
 
 class Recognizer(private val scanner: Scanner) {
-    private var last: task.Token? = null
+    private var last: Token? = null
 
     fun recognize(): Boolean {
         last = scanner.getToken()
