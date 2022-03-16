@@ -171,8 +171,6 @@ fun printTokens(scanner: Scanner) {
     }
 }
 
-data class Token(val value: Int, val lexeme: String, val startRow: Int, val startColumn: Int)
-
 const val FLOAT = 1
 const val VARIABLE = 2
 const val PLUS = 3
