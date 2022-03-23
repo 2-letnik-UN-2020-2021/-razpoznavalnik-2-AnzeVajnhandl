@@ -100,7 +100,7 @@ class Recognizer(private val scanner: Scanner) {
 fun main(args: Array<String>) {
     val inputStream: InputStream = File(args[0]).inputStream()
     val inputString = inputStream.bufferedReader().use { it.readText() }
-    if (Recognizer(Scanner(task.Example, "+4")).recognize()) {
+    if (Recognizer(Scanner(task.Example, "+4".byteInputStream())).recognize()) {
         print("accept")
     } else {
         print("reject")
