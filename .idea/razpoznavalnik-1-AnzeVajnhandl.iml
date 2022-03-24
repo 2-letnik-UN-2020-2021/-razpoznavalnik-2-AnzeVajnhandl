@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+  <component name="NewModuleRootManager">
+    <output url="file:///production/razpoznavalnik-1-AnzeVajnhandl" />
+    <output-test url="file:///test/razpoznavalnik-1-AnzeVajnhandl" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/kotlin/src/main/kotlin/task" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/kotlin/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
