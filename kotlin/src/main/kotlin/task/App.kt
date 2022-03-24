@@ -269,7 +269,6 @@ class Recognizer(private val scanner: Scanner) {
         else false
 }
 
-
 fun main(args: Array<String>) {
     val inputStream: InputStream = File(args[0]).inputStream()
     val inputString = inputStream.bufferedReader().use { it.readText() }
