@@ -193,9 +193,7 @@ class Recognizer(private val scanner: Scanner) {
 
     fun recognizeF():Boolean {
         val lookahead = last?.value
-        if (lookahead == null) {
-            true
-        }
+
         return when(lookahead) {
             LPAREN -> recognizeTerminal(LPAREN) && recognizeE() && recognizeTerminal(RPAREN)
             FLOAT -> recognizeTerminal(FLOAT)
@@ -205,9 +203,7 @@ class Recognizer(private val scanner: Scanner) {
     }
     fun recognizeY():Boolean{
         val lookahead = last?.value
-        if (lookahead == null) {
-            true
-        }
+
         return when(lookahead) {
             MINUS -> recognizeTerminal(MINUS) && recognizeF()
             PLUS -> recognizeTerminal(PLUS) && recognizeF()
@@ -224,11 +220,12 @@ class Recognizer(private val scanner: Scanner) {
     fun recognizeE_():Boolean {
         val lookahead = last?.value
         if (lookahead == null) {
-            true
+            return true
         }
         return when(lookahead) {
             PLUS -> recognizeTerminal(PLUS)  && recognizeT() && recognizeE_()
             MINUS -> recognizeTerminal(MINUS) && recognizeT() && recognizeE_()
+            RPAREN -> return true
             else -> false
         }
     }
@@ -236,11 +233,14 @@ class Recognizer(private val scanner: Scanner) {
     fun recognizeT_():Boolean{
         val lookahead = last?.value
         if (lookahead == null) {
-            true
+            return true
         }
         return when(lookahead) {
             TIMES -> recognizeTerminal(TIMES) && recognizeX() && recognizeT_()
             DIVIDE -> recognizeTerminal(DIVIDE) && recognizeX() && recognizeT_()
+            PLUS->return true;
+            MINUS->return true;
+            RPAREN ->return true;
             else -> false
         }
     }
@@ -248,10 +248,15 @@ class Recognizer(private val scanner: Scanner) {
     fun recognizeX_():Boolean{
         val lookahead = last?.value
         if (lookahead == null) {
-            true
+            return true
         }
         return when(lookahead) {
             POW -> recognizeTerminal(POW) && recognizeX_()
+            TIMES-> return true;
+            DIVIDE-> return true;
+            PLUS-> return true;
+            MINUS-> return true;
+            RPAREN -> return true;
             else -> false
         }
     }
